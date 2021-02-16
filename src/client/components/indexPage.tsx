@@ -1,7 +1,9 @@
-import React from "react";
+// @ts-ignore
+import * as React from "react"
+// @ts-ignore
 import {Button, Card, CardHeader, Grid, List, ListItem, ListItemText, makeStyles} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',

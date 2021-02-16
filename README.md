@@ -32,7 +32,7 @@ Edit `params.js` for your needs.
 ```
 $ npm run  srv-dev
 > red_tetrisboilerplate@0.0.1 srv-dev /home/eric/JS/red_tetris_boilerplate
-> DEBUG=tetris:* babel-watch -w src src/server/main.js
+> DEBUG=tetris:* babel-watch -w src src/server/main.ts
 ```
 
 It launches a node.js server listening for socket.io connexions, that is wired to receive `ping` messages and answered to … `pong`.
@@ -211,13 +211,13 @@ $ npm run srv-dist
 src/client/actions/alert.js -> dist/client/actions/alert.js
 src/client/actions/server.js -> dist/client/actions/server.js
 src/client/components/test.js -> dist/client/components/test.js
-src/client/containers/main.js -> dist/client/containers/main.js
+src/client/containers/main.ts -> dist/client/containers/main.ts
 src/client/index.ts -> dist/client/index.ts
 src/client/middleware/storeStateMiddleWare.js -> dist/client/middleware/storeStateMiddleWare.js
 src/client/reducers/alert.js -> dist/client/reducers/alert.js
 src/client/reducers/index.ts -> dist/client/reducers/index.ts
 src/server/index.ts -> dist/server/index.ts
-src/server/main.js -> dist/server/main.js
+src/server/main.ts -> dist/server/main.ts
 
 $ npm run client-dist
 
@@ -231,7 +231,7 @@ Time: 1923ms
 bundle.js  754 kB       0  [emitted]  main
     + 197 hidden modules
 
-$  DEBUG=tetris:* node dist/server/main.js 
+$  DEBUG=tetris:* node dist/server/main.ts 
   tetris:info tetris listen on http://0.0.0.0:3004 +0ms
   not yet ready to play tetris with U ...
 ```

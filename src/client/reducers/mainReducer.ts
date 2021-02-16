@@ -1,7 +1,12 @@
 import { SOCKET_POP } from '../actions/socket'
 import { USER_POP } from "../actions/user";
 
-const mainReducer = (state = {} , action) => {
+interface Action {
+  type: string;
+  value: any;
+}
+
+const mainReducer = (state = {} , action: Action) => {
   switch(action.type){
     case SOCKET_POP:
       return {...state,

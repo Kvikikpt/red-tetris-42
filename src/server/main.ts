@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 
-port = 3000;
+const port: number = 3000;
 
 const app = express();
 const server = app.listen(port, () => {
@@ -10,6 +10,7 @@ const server = app.listen(port, () => {
 
 app.use(cors())
 
+// @ts-ignore
 const io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:8080",
@@ -19,17 +20,18 @@ const io = require("socket.io")(server, {
   }
 });
 
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
   res.send('<h1>Hello world</h1>');
 });
 
-const getApiAndEmit = socket => {
+const getApiAndEmit = (socket: any) => {
   const response = new Date();
   // Emitting a new message. Will be consumed by the client
   socket.emit("FromAPI", response);
 };
 
-io.on("connection", (socket) => {
+// @ts-ignore
+io.on("connection", (socket: any) => {
   console.log("New client connected");
   let interval = setInterval(() => getApiAndEmit(socket), 1000);
   socket.on("disconnect", () => {

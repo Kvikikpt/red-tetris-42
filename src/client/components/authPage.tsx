@@ -1,9 +1,12 @@
-import React from "react";
-import {Button, Container, makeStyles, TextField} from "@material-ui/core";
+// @ts-ignore
+import * as React from "react"
+// @ts-ignore
+import {Button, Container, makeStyles, TextField, Theme} from "@material-ui/core";
+// @ts-ignore
 import {useDispatch} from "react-redux";
 import {setUser} from "../actions/user";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -19,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function AuthPage() {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ export default function AuthPage() {
         <form className={classes.form} noValidate>
           <TextField
             variant={"outlined"}
-            onInput={(e) => setName(e.target.value)}
+            onInput={(e: any) => setName(e.target.value)}
             value={name}
             margin="normal"
             required

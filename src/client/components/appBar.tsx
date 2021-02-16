@@ -1,8 +1,11 @@
-import React from "react";
-import {Avatar, makeStyles, Toolbar, Typography, AppBar, Container} from "@material-ui/core";
+// @ts-ignore
+import * as React from "react"
+// @ts-ignore
+import {Avatar, makeStyles, Toolbar, Typography, AppBar, Container, Theme} from "@material-ui/core";
+// @ts-ignore
 import {useSelector} from "react-redux";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   flex: {
     flexGrow: 1,
   },
@@ -13,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Topper() {
   const classes = useStyles();
-  const user = useSelector(state => state.user);
+  const user = useSelector((state: any) => state.user);
 
   const [icon, setIcon] = React.useState(user && user[0]);
 

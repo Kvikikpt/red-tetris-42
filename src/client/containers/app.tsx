@@ -1,7 +1,10 @@
-import React from 'react'
+// @ts-ignore
+import * as React from "react"
+// @ts-ignore
 import {useDispatch, useSelector} from 'react-redux'
+// @ts-ignore
 import {Container, CssBaseline} from "@material-ui/core";
-import {io} from "socket.io-client";
+import io from "socket.io-client";
 import {setSocket} from "../actions/socket";
 import AuthPage from "../components/authPage";
 import IndexPage from "../components/indexPage";
@@ -11,14 +14,12 @@ export default function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    const URL = "http://localhost:3000";
-    let socket = io(URL, {
-      withCredentials: true,
-    });
+    const URL: string = "http://localhost:3000";
+    const socket: SocketIOClient.Socket = io(URL);
     dispatch(setSocket(socket))
   }, []);
 
-  const user = useSelector(state => state.user);
+  const user = useSelector((state: any) => state.user);
 
   return (<React.Fragment>
       {user !== null &&

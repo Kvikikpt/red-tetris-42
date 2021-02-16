@@ -1,33 +1,36 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { io } from "socket.io-client";
+import {useDispatch, useSelector} from 'react-redux'
+import {Container, CssBaseline} from "@material-ui/core";
+import {io} from "socket.io-client";
+import {setSocket} from "../actions/socket";
+import AuthPage from "../components/authPage";
+import IndexPage from "../components/indexPage";
+import AppBar from "../components/appBar";
 
-
-const App = ({message}) => {
-  const [response, setResponse] = React.useState("");
-  const URL = "http://localhost:3000";
+export default function App() {
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    const socket = io(URL, {
+    const URL = "http://localhost:3000";
+    let socket = io(URL, {
       withCredentials: true,
     });
-    socket.on("FromAPI", data => {
-      setResponse(data);
-    });
+    dispatch(setSocket(socket))
   }, []);
 
-  return (
-    <p>
-      It's <time dateTime={response}>{response}</time>
-    </p>
+  const user = useSelector(state => state.user);
+
+  return (<React.Fragment>
+      {user !== null &&
+      <AppBar/>
+      }
+      <Container maxWidth={"md"} component={"main"}>
+        <CssBaseline />
+        {user === null ?
+          <AuthPage/> :
+          <IndexPage/>
+        }
+      </Container>
+    </React.Fragment>
   )
 }
-
-const mapStateToProps = (state) => {
-  return {
-    message: state.message
-  }
-}
-export default connect(mapStateToProps, null)(App)
-
-

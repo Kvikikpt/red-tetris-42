@@ -1,5 +1,2 @@
-import alert from './alert'
-export default alert
-
-
-
+import mainReducer from './mainReducer'
+export default mainReducer

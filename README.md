@@ -212,11 +212,11 @@ src/client/actions/alert.js -> dist/client/actions/alert.js
 src/client/actions/server.js -> dist/client/actions/server.js
 src/client/components/test.js -> dist/client/components/test.js
 src/client/containers/main.js -> dist/client/containers/main.js
-src/client/index.js -> dist/client/index.js
+src/client/index.ts -> dist/client/index.ts
 src/client/middleware/storeStateMiddleWare.js -> dist/client/middleware/storeStateMiddleWare.js
 src/client/reducers/alert.js -> dist/client/reducers/alert.js
-src/client/reducers/index.js -> dist/client/reducers/index.js
-src/server/index.js -> dist/server/index.js
+src/client/reducers/index.ts -> dist/client/reducers/index.ts
+src/server/index.ts -> dist/server/index.ts
 src/server/main.js -> dist/server/main.js
 
 $ npm run client-dist

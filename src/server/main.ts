@@ -1,5 +1,9 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
+// @ts-ignore
+const {db} = require('./db/index');
+// @ts-ignore
+const {auth} = require('./socket/index')
 
 const port: number = 3000;
 
@@ -38,4 +42,5 @@ io.on("connection", (socket: any) => {
     console.log("Client disconnected");
     clearInterval(interval);
   });
+  auth(socket)
 });

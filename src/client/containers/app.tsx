@@ -20,6 +20,7 @@ export default function App() {
   }, []);
 
   const user = useSelector((state: any) => state.user);
+  const socket = useSelector((state: any) => state.socket);
 
   return (<React.Fragment>
       {user !== null &&
@@ -28,7 +29,7 @@ export default function App() {
       <Container maxWidth={"md"} component={"main"}>
         <CssBaseline />
         {user === null ?
-          <AuthPage/> :
+          (socket === null ? null : <AuthPage/>) :
           <IndexPage/>
         }
       </Container>
